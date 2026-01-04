@@ -1,0 +1,75 @@
+<div class="detail-container">
+  <h1 *ngIf="patientId">Patient #{{ patientId }} Management Panel</h1>
+
+  <div class="grid-container">
+    <div class="exercise-assign-section">
+      <h2>Assignable Exercises</h2>
+      <div *ngIf="isLoadingExercises">Loading exercises...</div>
+      <ul *ngIf="!isLoadingExercises" class="exercise-list">
+        <li *ngFor="let exercise of availableExercises">
+          <div class="exercise-info">
+            <strong>{{ exercise.displayName }}</strong>
+            <p>{{ exercise.description }}</p>
+          </div>
+          <button class="btn-assign" (click)="assignExercise(exercise.id)">Assign</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="session-history-section">
+      <h2>Completed Sessions</h2>
+      <div *ngIf="isLoadingHistory">Loading session history...</div>
+
+      <div *ngIf="!isLoadingHistory && sessionHistory.length === 0" class="no-history">
+        This patient does not have any completed exercise sessions yet.
+      </div>
+
+      <ul *ngIf="!isLoadingHistory && sessionHistory.length > 0" class="history-list">
+        <li *ngFor="let session of sessionHistory">
+          <div class="session-header">
+            <strong>{{ session.exerciseName }}</strong>
+            <span>{{ session.sessionDate | date:'dd.MM.yyyy HH:mm' }}</span>
+          </div>
+          <div class="session-results">
+            <p><strong>Patient Result:</strong></p>
+
+            <ng-container *ngIf="parseResults(session.results) as parsedResults">
+
+              <div class="results-summary">
+                <div class="summary-item">
+                  <label>Overall Performance</label>
+                  <strong [style.color]="getScoreColor(parsedResults.averageScore)">
+                    %{{ parsedResults.averageScore.toFixed(1) }}
+                  </strong>
+                </div>
+
+                <div class="score-bar">
+                  <div class="score-fill"
+                       [style.width]="parsedResults.averageScore + '%'"
+                       [style.backgroundColor]="getScoreColor(parsedResults.averageScore)">
+                  </div>
+                </div>
+
+                <div class="summary-item">
+                  <label>Errors to Consider:</label>
+                  <ul class="errors-list">
+                    <ng-container *ngFor="let rep of parsedResults.reps">
+                      <li *ngIf="rep.prediction !== 'True'">
+                        <strong>Repetition #{{ rep.rep }}:</strong> {{ rep.prediction }}
+                      </li>
+                    </ng-container>
+                    <li *ngIf="parsedResults.averageScore === 100">
+                      Congratulations, no errors were made!
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </ng-container>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.dashboard-container h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dashboard-container p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.info-card {
+  background-color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.info-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #333;
+}
+
+.info-card p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.code-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f2f5;
+  border: 1px dashed #c1bbf7;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+.code-display span {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+}
+
+.code-display button {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.code-display button:hover {
+  background-color: #f9fafb;
+  color: var(--primary-color);
+}
+

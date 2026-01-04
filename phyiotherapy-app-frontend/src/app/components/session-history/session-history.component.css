@@ -1,0 +1,127 @@
+/* --- Ana Konteyner Kartı --- */
+.history-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 100%; /* Sütun yüksekliğini eşitlemek için */
+}
+
+.history-container h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* --- Geçmiş Listesi --- */
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Her bir seans kartı arası boşluk */
+}
+
+/* --- Tek Bir Seans Kartı --- */
+.history-list li {
+  background-color: #f9fafb;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.session-header strong {
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+.session-header span {
+  font-size: 14px;
+  color: #777;
+}
+
+.session-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* --- Sonuç Özeti Stilleri --- */
+.results-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.results-summary label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.results-summary strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.score-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #eef2ff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* --- Geri Bildirim Stilleri --- */
+.feedback-display {
+  margin-top: 5px;
+}
+
+.feedback-display label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.feedback-display p {
+  background-color: #eef2ff;
+  color: #4338ca;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.feedback-display p.no-feedback {
+  background-color: transparent;
+  padding: 0;
+  color: #999;
+  font-style: italic;
+}
+
+/* --- Yüklenme ve Boş Durum Mesajları --- */
+.loading-message, .no-history-message {
+  padding: 40px;
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+}

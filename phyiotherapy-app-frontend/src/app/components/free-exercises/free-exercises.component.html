@@ -1,0 +1,16 @@
+<div class="free-exercise-container">
+  <h1>Free Practice Area</h1>
+  <p>You can choose any of the exercises below to practice freely.</p>
+
+  <div *ngIf="isLoading">Loading exercises...</div>
+
+  <ul *ngIf="!isLoading" class="exercise-list">
+    <li *ngFor="let exercise of allExercises">
+      <div class="exercise-info">
+        <strong>{{ exercise.displayName }}</strong>
+        <p>{{ exercise.description }}</p>
+      </div>
+      <button class="btn-start" (click)="startExercise(exercise)">Start</button>
+    </li>
+  </ul>
+</div>

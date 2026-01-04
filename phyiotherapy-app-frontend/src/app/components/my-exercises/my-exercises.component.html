@@ -1,0 +1,20 @@
+<div class="exercises-container">
+  <h2>Exercises Assigned to You</h2>
+
+  <div *ngIf="isLoading" class="loading-message">Your exercises are loading...</div>
+
+  <div *ngIf="!isLoading && assignedExercises.length === 0" class="no-exercises-message">
+    <p>Great! You don't have any unfinished exercises yet.</p>
+  </div>
+
+  <ul *ngIf="!isLoading && assignedExercises.length > 0" class="exercise-list">
+    <li *ngFor="let item of assignedExercises">
+      <div class="exercise-info">
+        <strong>{{ item.exerciseDisplayName }}</strong>
+      </div>
+      <a [routerLink]="['/do-exercise', item.id]" class="btn-start">
+        Start Exercise
+      </a>
+    </li>
+  </ul>
+</div>

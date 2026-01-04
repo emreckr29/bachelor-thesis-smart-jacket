@@ -1,0 +1,119 @@
+/* Main Dashboard Container */
+.dashboard-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.dashboard-container h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dashboard-container p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* General style for physiotherapist linking card */
+.info-card {
+  background-color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.info-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.info-card p {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Code input form */
+.link-form {
+  display: flex;
+  gap: 10px;
+}
+
+.link-form input {
+  flex-grow: 1; /* Allows input field to expand */
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.link-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 90, 249, 0.2);
+}
+
+.link-form button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.link-form button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+
+/* Grid layout for exercises and history */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.action-card a {
+  display: block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.action-card a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(106, 90, 249, 0.3);
+}
+.action-card h3 {
+  margin: 0 0 5px 0;
+  font-size: 22px;
+}
+.action-card p {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.action-card span {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}

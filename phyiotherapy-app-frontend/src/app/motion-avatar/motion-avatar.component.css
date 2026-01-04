@@ -1,0 +1,4 @@
+/* Stil kodları aynı kalabilir */
+:host, .canvas-container { width: 100%; height: 100%; }
+.canvas-container { display: flex; justify-content: center; align-items: center; background-color: #1e1e1e; border-radius: 8px; }
+canvas { background-color: #1e1e1e; }

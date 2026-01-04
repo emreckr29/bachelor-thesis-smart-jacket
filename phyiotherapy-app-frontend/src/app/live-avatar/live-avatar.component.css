@@ -1,0 +1,28 @@
+/* src/app/live-avatar/live-avatar.component.css */
+
+:host {
+  display: block;
+  /* Kapsayıcının boyutunu belirginleştirmek için bir boyut verelim */
+  width: 100%;
+  height: 70vh; /* Ekran yüksekliğinin %70'i kadar yer kaplasın */
+  min-height: 500px; /* Minimum yükseklik */
+}
+
+.canvas-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* === EN ÖNEMLİ DEĞİŞİKLİK BURADA === */
+/* Canvas'a içinde bulunduğu alanı %100 doldurmasını söylüyoruz */
+canvas {
+  display: block; /* Altındaki olası boşlukları kaldırır */
+  width: 100%;
+  height: 100%;
+}

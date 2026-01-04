@@ -1,0 +1,13 @@
+.canvas-container {
+  width: 90%;
+  height: 80vh; /* Ekran yüksekliğinin %80'i */
+  margin: 20px auto; /* Üstten 20px, sağdan/soldan otomatik ortala */
+  border: 1px solid #444;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block; /* Canvas etrafındaki olası boşlukları kaldırır */
+}

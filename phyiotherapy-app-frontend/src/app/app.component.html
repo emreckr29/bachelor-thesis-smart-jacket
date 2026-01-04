@@ -1,0 +1,10 @@
+<header *ngIf="isLoggedIn$ | async">
+  <nav class="app-header">
+    <span class="app-title">Smart Jacket</span>
+    <button class="logout-btn" (click)="logout()">Log Out</button>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

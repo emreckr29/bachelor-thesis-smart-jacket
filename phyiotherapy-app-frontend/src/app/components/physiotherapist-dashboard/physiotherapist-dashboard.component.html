@@ -1,0 +1,14 @@
+<div class="dashboard-container">
+  <h1>Physiotherapist Panel</h1>
+
+  <div class="info-card" *ngIf="myProfile && myProfile.invitationCode">
+    <h3>Patient Invitation Code</h3>
+    <p>Share the code below with your patients to add them.</p>
+    <div class="code-display">
+      <span>{{ myProfile.invitationCode }}</span>
+      <button (click)="copyCode(myProfile.invitationCode)">Copy</button>
+    </div>
+  </div>
+
+  <app-patient-list></app-patient-list>
+</div>

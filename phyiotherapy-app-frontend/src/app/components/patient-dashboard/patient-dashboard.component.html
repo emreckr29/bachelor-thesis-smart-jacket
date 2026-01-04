@@ -1,0 +1,37 @@
+<div class="dashboard-container">
+  <h1>Patient Dashboard</h1>
+  <p>You can track your assigned exercises and progress here.</p>
+
+  <div *ngIf="isLoading">Loading profile information...</div>
+
+  <ng-container *ngIf="!isLoading && myProfile">
+    <div *ngIf="!myProfile.physiotherapist" class="info-card">
+      <h3>Add Physiotherapist</h3>
+      <p>Enter the invitation code given by your physiotherapist to link your account.</p>
+      <div class="link-form">
+        <input type="text" placeholder="FYZ-XXXXXXXX" [(ngModel)]="physioCodeInput">
+        <button (click)="submitLinkCode()">Connect</button>
+      </div>
+    </div>
+
+    <div *ngIf="myProfile.physiotherapist" class="info-card physio-info-card">
+      <h3>My Physiotherapist</h3>
+      <div class="physio-details">
+        <span>{{ myProfile.physiotherapist.email }}</span>
+        </div>
+    </div>
+  </ng-container>
+
+  <div class="action-card">
+    <a routerLink="/free-exercises">
+      <h3>Free Practice Area</h3>
+      <p>View all exercises and practice any of them you want.</p>
+      <span>Start Now &rarr;</span>
+    </a>
+  </div>
+
+  <div class="grid-container">
+    <app-my-exercises></app-my-exercises>
+    <app-session-history></app-session-history>
+  </div>
+</div>

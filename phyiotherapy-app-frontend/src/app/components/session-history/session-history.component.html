@@ -1,0 +1,42 @@
+<div class="history-container">
+  <h2>My Exercise History</h2>
+
+  <div *ngIf="isLoading" class="loading-message">Loading history...</div>
+
+  <div *ngIf="!isLoading && sessionHistory.length === 0" class="no-history-message">
+    <p>You haven’t completed any exercises yet.</p>
+  </div>
+
+  <ul *ngIf="!isLoading && sessionHistory.length > 0" class="history-list">
+    <li *ngFor="let session of sessionHistory">
+      <div class="session-header">
+        <strong>{{ session.exerciseDisplayName }}</strong>
+        <span>{{ session.sessionDate | date:'dd.MM.yyyy HH:mm' }}</span>
+      </div>
+
+      <div class="session-body" *ngIf="parseResults(session.results) as parsed">
+        <div class="results-summary">
+          <label>Overall Performance</label>
+          <strong [style.color]="getScoreColor(parsed.averageScore)">
+            %{{ parsed.averageScore.toFixed(1) }}
+          </strong>
+          <div class="score-bar">
+            <div class="score-fill"
+                 [style.width]="parsed.averageScore + '%'"
+                 [style.backgroundColor]="getScoreColor(parsed.averageScore)">
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback-display" *ngIf="session.feedback">
+          <label>Physiotherapist Feedback</label>
+          <p>{{ session.feedback }}</p>
+        </div>
+        <div class="feedback-display" *ngIf="!session.feedback">
+          <label>Physiotherapist Feedback</label>
+          <p class="no-feedback">No feedback has been added yet.</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

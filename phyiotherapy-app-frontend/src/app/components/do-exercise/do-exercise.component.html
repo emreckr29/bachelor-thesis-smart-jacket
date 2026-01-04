@@ -1,0 +1,62 @@
+<div class="exercise-session-container">
+  <div class="session-header">
+    <h2>{{ exerciseDisplayName || 'Exercise Session' }}</h2>
+    <div class="progress-tracker" *ngIf="state !== 'AwaitingConnection' && state !== 'Connecting'">
+      Repetition: {{ currentRep }} / {{ totalReps }}
+    </div>
+  </div>
+
+  <div class="status-display" [ngSwitch]="state">
+
+    <div *ngSwitchCase="'AwaitingConnection'">
+      <p class="status-message">{{ statusMessage }}</p>
+      <button class="btn-main" (click)="connectToDevice()">Connect to Smart Jacket</button>
+    </div>
+
+    <div *ngSwitchCase="'Connecting'">
+       <p class="status-message">{{ statusMessage }}</p>
+       <div class="loader"></div>
+    </div>
+
+    <div *ngSwitchCase="'Ready'">
+      <p class="status-message success-message">{{ statusMessage }}</p>
+
+      <div class="model-selection">
+        <label for="model-select">1. Select AI Model</label>
+        <select id="model-select" [(ngModel)]="selectedModel" class="select-field">
+          <option *ngFor="let model of models" [value]="model.value">
+            {{ model.viewValue }}
+          </option>
+        </select>
+      </div>
+
+      <button class="btn-main" (click)="startSession()" [disabled]="!selectedModel">
+        2. Start Session
+      </button>
+    </div>
+
+    <div *ngSwitchCase="'Countdown'" class="countdown">
+      {{ countdown }}
+    </div>
+
+    <div *ngSwitchCase="'Recording'" class="recording-indicator">
+      <div class="red-dot"></div>
+      <p>{{ statusMessage }}</p>
+    </div>
+
+    <div *ngSwitchCase="'Result'">
+      <p class="status-message result-score">{{ statusMessage }}</p>
+      <p>Preparing for the next repetition...</p>
+    </div>
+
+    <div *ngSwitchCase="'Finished'">
+       <p class="status-message final-score">{{ statusMessage }}</p>
+       <p>Great job! Redirecting to the dashboard...</p>
+    </div>
+
+    <div *ngSwitchDefault>
+      <p class="status-message">{{ statusMessage }}</p>
+      <div class="loader"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+.exercise-session-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.session-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+}
+
+.progress-tracker {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  background-color: #f0f2f5;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.status-display {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.status-message {
+  font-size: 22px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.success-message {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.final-score {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.btn-main {
+  min-width: 200px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-main:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.countdown {
+  font-size: 120px;
+  font-weight: 600;
+  color: var(--primary-color);
+  animation: pulse 1s infinite;
+}
+
+.recording-indicator .red-dot {
+  width: 30px;
+  height: 30px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  animation: pulse-red 1.5s infinite;
+}
+
+.result-score {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.model-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.model-selection label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.select-field {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--primary-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse-red {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
